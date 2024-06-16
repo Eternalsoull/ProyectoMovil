@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Navegaciones</string>
+    <string name="screen_one">Agregar Usuario</string>
+    <string name="screen_two">Listar Usuarios</string>
+    <string name="nombre">Nombre</string>
+    <string name="cerrar_sesion">Cerrar Sesion</string>
+    <string name="clientes">Clientes</string>
+    <string name="vehiculos">Vehiculos</string>
+    <string name="insumos">Insumos</string>
+    <string name="ventas">Ventas</string>
+</resources>
