@@ -15,13 +15,26 @@ class PantallaBienvenida: AppCompatActivity(), View.OnClickListener {
         binding = ActivityBienvenidaBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnCerrar.setOnClickListener(this)
+        binding.btnRoles.setOnClickListener(this)
+
 
         // Recuperar la cédula del intent
         val cedula = intent.getStringExtra("cedula")
         if (cedula != null) {
             val usuario = Globals.getdataBase(this)?.usuarioDao()?.getUsuarioByCedula(cedula)
             binding.tvNombre.text = usuario?.nombre
+            //si el rol es administrador mostrar el boton de btnUsuarios
+            if (usuario?.id_Rol == 1){
+                binding.btnUsuarios.visibility = View.VISIBLE
+                binding.btnRoles.visibility = View.VISIBLE
+            }
+            else{
+                binding.btnUsuarios.visibility = View.GONE
+                binding.btnRoles.visibility = View.GONE
+            }
         }
+
+
     }
 
     override fun onClick(p0: View?) {
@@ -37,6 +50,10 @@ class PantallaBienvenida: AppCompatActivity(), View.OnClickListener {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish() // Finalizar la actividad actual para que no pueda volver atrás
+            }
+            R.id.btnRoles -> {
+                val intent = Intent(this, PantallaRegistroRol::class.java)
+                startActivity(intent)
             }
         }
     }

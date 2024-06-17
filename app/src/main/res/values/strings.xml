@@ -8,4 +8,6 @@
     <string name="vehiculos">Vehiculos</string>
     <string name="insumos">Insumos</string>
     <string name="ventas">Ventas</string>
+    <string name="usuarios">Usuarios</string>
+    <string name="roles">Roles</string>
 </resources>
