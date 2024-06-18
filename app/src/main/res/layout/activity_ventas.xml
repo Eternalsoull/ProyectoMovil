@@ -21,7 +21,6 @@
         android:id="@+id/btnLista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="372dp"
         android:layout_marginEnd="164dp"
         android:text="Lista"
         app:layout_constraintEnd_toEndOf="parent"
