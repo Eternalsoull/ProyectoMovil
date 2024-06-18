@@ -8,6 +8,13 @@
     <string name="vehiculos">Vehiculos</string>
     <string name="insumos">Insumos</string>
     <string name="ventas">Ventas</string>
-    <string name="usuarios">Usuarios</string>
-    <string name="roles">Roles</string>
+    <string name="apellido">Apellido</string>
+    <string name="cedula">Cedula</string>
+    <string name="Cedula">Cedula</string>
+    <string name="Apellido">Apellido</string>
+    <string name="ingrese_marca">Ingrese Marca</string>
+    <string name="ingrese_color">Ingrese Color</string>
+    <string name="ingrese_placa">Ingrese Placa</string>
+    <string name="ingrese_modelo">Ingrese Modelo</string>
+    <string name="aceptar">Aceptar</string>
 </resources>
