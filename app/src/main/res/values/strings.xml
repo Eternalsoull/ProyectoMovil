@@ -17,4 +17,6 @@
     <string name="ingrese_placa">Ingrese Placa</string>
     <string name="ingrese_modelo">Ingrese Modelo</string>
     <string name="aceptar">Aceptar</string>
+    <string name="listar">Listar</string>
+    <string name="registrar">Registrar</string>
 </resources>

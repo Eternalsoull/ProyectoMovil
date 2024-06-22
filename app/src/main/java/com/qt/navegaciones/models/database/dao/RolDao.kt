@@ -20,4 +20,8 @@ interface RolDao {
     @Query("DELETE FROM rol")
     fun deleteAllRoles()
 
+    //buscar un rol por id
+    @Query("SELECT * FROM rol WHERE id_Rol = :id")
+    fun getRolById(id: Int): RolEntity
+
 }

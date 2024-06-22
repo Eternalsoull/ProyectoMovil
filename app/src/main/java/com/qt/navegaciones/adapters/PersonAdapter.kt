@@ -39,9 +39,9 @@ class PersonAdapter : BaseAdapter{
         var person = persons.persons[position]
         var txtName = view?.findViewById<TextView>(R.id.txtFullName)
         txtName?.text = person.getFullName()
-        var txtPhone = view?.findViewById<TextView>(R.id.txtItemColor)
+        var txtPhone = view?.findViewById<TextView>(R.id.txtCedula)
         txtPhone?.text = person.phone
-        var txtEmail = view?.findViewById<TextView>(R.id.txtItemPlaca)
+        var txtEmail = view?.findViewById<TextView>(R.id.txtRol)
         txtEmail?.text = person.email
         var imgView = view?.findViewById<ImageView>(R.id.imgProfile)
         Glide.with(context).load(person.url).into(imgView!!)

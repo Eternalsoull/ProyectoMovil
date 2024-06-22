@@ -16,4 +16,8 @@ interface ClienteDao {
 
     @Query("SELECT * FROM cliente")
     fun getAllclientes(): List<ClienteEntity>
+
+    @Query("SELECT * FROM cliente WHERE Cedula = :cedula")
+    fun getClienteByCedula(cedula: String): ClienteEntity
 }
+

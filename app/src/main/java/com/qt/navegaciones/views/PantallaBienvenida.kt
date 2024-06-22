@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.qt.navegaciones.databinding.ActivityBienvenidaBinding
 import com.qt.navegaciones.models.Globals
+import com.qt.navegaciones.views.RegistrarClienteActivity
 
 class PantallaBienvenida: AppCompatActivity(), View.OnClickListener {
     lateinit var binding: ActivityBienvenidaBinding
@@ -16,6 +17,8 @@ class PantallaBienvenida: AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
         binding.btnCerrar.setOnClickListener(this)
         binding.btnRoles.setOnClickListener(this)
+        binding.btnUsuarios.setOnClickListener(this)
+        binding.btnClientes.setOnClickListener(this)
 
 
         // Recuperar la cédula del intent
@@ -53,6 +56,17 @@ class PantallaBienvenida: AppCompatActivity(), View.OnClickListener {
             }
             R.id.btnRoles -> {
                 val intent = Intent(this, PantallaRegistroRol::class.java)
+                startActivity(intent)
+            }
+            R.id.btnUsuarios -> {
+                val intent = Intent(this, PantallaRegistro::class.java)
+                startActivity(intent)
+            }
+            R.id.btnClientes -> {
+                //PASAR LA CEDULA DEL USUARIO LOGUEADO
+                val cedula = intent.getStringExtra("cedula")
+                intent.putExtra("cedula", cedula)
+                val intent = Intent(this, RegistrarClienteActivity::class.java)
                 startActivity(intent)
             }
         }

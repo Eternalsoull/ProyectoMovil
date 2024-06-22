@@ -1,5 +1,6 @@
 package com.qt.navegaciones
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import android.widget.Toast
 import com.qt.navegaciones.models.Globals
 import com.qt.navegaciones.models.database.entities.RolEntity
 import com.qt.navegaciones.models.database.entities.UsuarioEntity
+import com.qt.navegaciones.views.ListaUsuarios
 
 
 class PantallaRegistro : AppCompatActivity(), View.OnClickListener {
@@ -19,6 +21,7 @@ class PantallaRegistro : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
         var intent = intent
         binding.btnRegistrar.setOnClickListener(this)
+        binding.btnListarUsuarios.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -29,20 +32,31 @@ class PantallaRegistro : AppCompatActivity(), View.OnClickListener {
                 usuarioEntity.cedula = binding.etCedula.text.toString()
                 usuarioEntity.nombre = binding.etNombre.text.toString()
                 usuarioEntity.contrasena = binding.etContrasena.text.toString()
-                var roles : List<RolEntity> = Globals.getdataBase(this)?.rolDao()?.getAllroles()!!
-                var rolId : Int = 0
-                for (rol in roles){
-                    if (rol.nombre_Rol == binding.spRol.selectedItem.toString()){
+                var roles: List<RolEntity> = Globals.getdataBase(this)?.rolDao()?.getAllroles()!!
+                var rolId: Int = 0
+                for (rol in roles) {
+                    if (rol.nombre_Rol == binding.spRol.selectedItem.toString()) {
                         rolId = rol.id_Rol
                     }
                 }
                 usuarioEntity.id_Rol = rolId
-                Globals.getdataBase(this)?.usuarioDao()?.insertUsuario(usuarioEntity)
+
+                //si la cesula ya existe en la base de datos no se puede agregar, y si no existe se agrega
+                if (Globals.getdataBase(this)?.usuarioDao()?.getUsuarioByCedula(usuarioEntity.cedula) == null) {
+                        Globals.getdataBase(this)?.usuarioDao()?.insertUsuario(usuarioEntity)
+                } else {
+                    Toast.makeText(this, "La cedula ya existe", Toast.LENGTH_LONG).show()
+                }
 
                 Toast.makeText(this, "Se ha agregado un usuario", Toast.LENGTH_LONG).show()
             }
-        }
+
+            R.id.btnListarUsuarios -> {
+                val intent = Intent(this, ListaUsuarios::class.java)
+                startActivity(intent)
             }
+        }
+    }
 
 
 

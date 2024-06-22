@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_width_button">129dp</dimen>
+    <dimen name="activity_height_button">51dp</dimen>
+    <dimen name="activity_margin_vertical_button">16dp</dimen>
+    <dimen name="activity_margin_horizontal_button">16dp</dimen>
+
+
+
+</resources>

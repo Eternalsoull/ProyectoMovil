@@ -39,9 +39,9 @@ class CarAdapter : BaseAdapter{
         var car = cars.cars[position]
         var txtName = view?.findViewById<TextView>(R.id.txtFullName)
         txtName?.text = car.getFullName()
-        var txtColor = view?.findViewById<TextView>(R.id.txtItemColor)
+        var txtColor = view?.findViewById<TextView>(R.id.txtCedula)
         txtColor?.text = car.color
-        var txtPlaca = view?.findViewById<TextView>(R.id.txtItemPlaca)
+        var txtPlaca = view?.findViewById<TextView>(R.id.txtRol)
         txtPlaca?.text = car.placa
         var imgView = view?.findViewById<ImageView>(R.id.imgProfile)
         Glide.with(context).load(car.url).into(imgView!!)

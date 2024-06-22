@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    //login con cedula y contraseña
 
     <EditText
         android:id="@+id/edtCedula"
