@@ -18,10 +18,13 @@ import com.qt.navegaciones.models.database.entities.ClienteEntity
 class ListaClientes : AppCompatActivity(), View.OnClickListener {
         lateinit var binding: ActivityListarClientesBinding
 
+
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             binding = ActivityListarClientesBinding.inflate(layoutInflater)
             setContentView(binding.root)
+            var intent = intent
+            binding.btnVolver.setOnClickListener(this)
 
             val clientes: Clientes = Clientes(Globals.getdataBase(this)?.clienteDao()?.getAllclientes()!! as ArrayList<ClienteEntity>)
             val adapter: ClienteAdapter = ClienteAdapter(this, clientes)
@@ -46,7 +49,8 @@ class ListaClientes : AppCompatActivity(), View.OnClickListener {
         override fun onClick(v: View?) {
             when (v?.id) {
                 // Eliminar el usuario seleccionado
-                R.id.btnVolver2 -> {
+                R.id.btnVolver -> {
+
 
                     // Redirigir a la pantalla de bienvenida
                     val intent = Intent(this, MainActivity::class.java)

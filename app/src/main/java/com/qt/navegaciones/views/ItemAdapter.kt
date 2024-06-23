@@ -3,12 +3,8 @@ package com.qt.navegaciones
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.qt.navegaciones.databinding.ItemAdapterBinding
-import com.qt.navegaciones.models.Globals
-import com.qt.navegaciones.views.ListaUsuarios
-
 
 class ItemAdapter : AppCompatActivity(), View.OnClickListener {
     lateinit var binding: ItemAdapterBinding
