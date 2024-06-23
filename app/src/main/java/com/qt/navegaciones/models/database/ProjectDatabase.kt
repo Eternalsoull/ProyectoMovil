@@ -23,7 +23,7 @@ import com.qt.navegaciones.models.database.entities.UsuarioEntity
 import com.qt.navegaciones.models.database.entities.VehiculoEntity
 import com.qt.navegaciones.models.database.entities.VentaEntity
 
-@Database(entities = arrayOf(CarEntity::class, PersonEntity::class, ClienteEntity::class, DetalleVentaEntity::class, InsumoEntity::class, ProductoEntity::class, RolEntity::class, UsuarioEntity::class, VehiculoEntity::class, VentaEntity::class ), version = 21)
+@Database(entities = arrayOf(CarEntity::class, PersonEntity::class, ClienteEntity::class, DetalleVentaEntity::class, InsumoEntity::class, ProductoEntity::class, RolEntity::class, UsuarioEntity::class, VehiculoEntity::class, VentaEntity::class ), version = 22)
 abstract class ProjectDatabase : RoomDatabase(){
    abstract fun carDao(): CarDao
    abstract fun personDao(): PersonDao

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.qt.navegaciones.PantallaRegistroRol
 import com.qt.navegaciones.R
 import com.qt.navegaciones.databinding.ActivityRegistrarClienteBinding
 import com.qt.navegaciones.models.Globals
@@ -21,6 +22,8 @@ class RegistrarClienteActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
         var intent = intent
         binding.btnRegistrar.setOnClickListener(this)
+        binding.btnListar.setOnClickListener(this)
+
 
     }
 
@@ -47,15 +50,22 @@ class RegistrarClienteActivity : AppCompatActivity(), View.OnClickListener {
                 clienteEntity.id_Usuario = usuario?.id_Usuario!!
 
                 //si la cedula ya existe en la base de datos no se puede agregar, y si no existe se agrega
-                if (Globals.getdataBase(this)?.clienteDao()?.getClienteByCedula(clienteEntity.Cedula) == null) {
+                if (Globals.getdataBase(this)?.clienteDao()
+                        ?.getClienteByCedula(clienteEntity.Cedula) == null
+                ) {
                     Globals.getdataBase(this)?.clienteDao()?.insertCliente(clienteEntity)
                 } else {
-                    Toast.makeText(this, "La cedula ya existe",     Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "La cedula ya existe", Toast.LENGTH_LONG).show()
                 }
                 Toast.makeText(this, "Se ha agregado un clienter", Toast.LENGTH_LONG).show()
 
             }
 
+            R.id.btnListar -> {
+                val intent = Intent(this, ListaClientes::class.java)
+                startActivity(intent)
+
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ import androidx.room.ForeignKey
     )]
 )
 class ClienteEntity {
-    @PrimaryKey
+    @PrimaryKey (autoGenerate = true)
     var id_Cliente: Int = 0
     var Cedula: String = ""
     var Nombre: String = ""

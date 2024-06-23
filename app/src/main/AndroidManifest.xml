@@ -17,6 +17,9 @@
             android:exported="false"/>
         <activity android:name=".views.ListaUsuarios"
             android:exported="false"/>
+
+        <activity android:name=".views.ListaClientes"
+            android:exported="false"/>
         <activity
             android:name=".PantallaBienvenida"
             android:exported="false" />
@@ -30,8 +33,10 @@
             android:name=".Pantalla3"
             android:exported="false" />
         <activity
+
             android:name=".Pantalla2"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
