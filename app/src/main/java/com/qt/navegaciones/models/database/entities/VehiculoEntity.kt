@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey
     )]
 )
 class VehiculoEntity {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     var id_Vehiculo: Int = 0
     var Marca: String = ""
     var Modelo: String = ""

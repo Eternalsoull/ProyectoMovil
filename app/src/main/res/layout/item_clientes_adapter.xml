@@ -5,56 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageCliente"
-        android:layout_width="161dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="564dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtNameCliente"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <TextView
         android:id="@+id/txtCedulaC"
         android:layout_width="194dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="14dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/txtTelefonoC"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNameCliente" />
 
     <TextView
         android:id="@+id/txtNameCliente"
         android:layout_width="194dp"
         android:layout_height="38dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="@dimen/activity_margin_vertical_button"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/txtCedulaC"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageCliente"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtTelefonoC"
-        android:layout_width="188dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="560dp"
+        android:layout_width="194dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCedulaC" />
 </androidx.constraintlayout.widget.ConstraintLayout>

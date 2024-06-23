@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey
     )]
 )
 class VentaEntity {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     var id_Venta: Int = 0
     var Fecha: Long = 0
     var Monto_Total: Double = 0.0

@@ -22,7 +22,7 @@ import androidx.room.PrimaryKey
     ]
 )
 class DetalleVentaEntity {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     var id_Detalle_Venta: Int = 0
     var Cantidad: Int = 0
     var Precio: Double = 0.0

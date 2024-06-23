@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey
     )]
 )
 class InsumoEntity {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     var id_Insumo: Int = 0
     var Descripcion: String = ""
     var id_Producto: Int = 0
