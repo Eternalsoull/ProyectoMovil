@@ -1,5 +1,6 @@
 package com.qt.navegaciones.views
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -20,7 +21,9 @@ class RegistrarProductoActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistrarProductoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        var intent = intent
         binding.btnRegistrar.setOnClickListener(this)
+        binding.btnListarP.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -28,9 +31,15 @@ class RegistrarProductoActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnRegistrar -> {
                 registrarProducto()
             }
-        }
-    }
+            R.id.btnListarP ->{
+                val intent = Intent(this, ListaProductos::class.java)
+                startActivity(intent)
 
+            }
+        }
+
+
+    }
     private fun registrarProducto() {
         val nombre = binding.etNombre.text.toString()
         val precio = binding.etPrecio.text.toString().toDoubleOrNull()
@@ -47,10 +56,21 @@ class RegistrarProductoActivity : AppCompatActivity(), View.OnClickListener {
 
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
-                Globals.getdataBase(this@RegistrarProductoActivity)?.productoDao()?.insertProducto(productoEntity)
+                Globals.getdataBase(this@RegistrarProductoActivity)?.productoDao()
+                    ?.insertProducto(productoEntity)
             }
-            Toast.makeText(this@RegistrarProductoActivity, "Se ha agregado un producto", Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                this@RegistrarProductoActivity,
+                "Se ha agregado un producto",
+                Toast.LENGTH_LONG
+            ).show()
             finish()
         }
+
+
     }
-}
+
+
+    }
+
+

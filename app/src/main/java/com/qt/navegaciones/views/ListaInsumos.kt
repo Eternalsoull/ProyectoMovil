@@ -9,32 +9,36 @@ import androidx.appcompat.app.AppCompatActivity
 import com.qt.navegaciones.MainActivity
 import com.qt.navegaciones.R
 import com.qt.navegaciones.adapters.ClienteAdapter
-import com.qt.navegaciones.databinding.ActivityListarClientesBinding
-import com.qt.navegaciones.databinding.ActivityPantalla3Binding
+import com.qt.navegaciones.adapters.InsumoAdapter
+import com.qt.navegaciones.databinding.ActivityListarInsumosBinding
+import com.qt.navegaciones.models.Insumos
 import com.qt.navegaciones.models.Globals
-import com.qt.navegaciones.models.Clientes
-import com.qt.navegaciones.models.database.entities.ClienteEntity
+import com.qt.navegaciones.models.database.entities.InsumoEntity
 
-class ListaClientes : AppCompatActivity(), View.OnClickListener {
-        lateinit var binding: ActivityListarClientesBinding
+class ListaInsumos {
+    class ListaInsumos : AppCompatActivity(), View.OnClickListener {
+        lateinit var binding: ActivityListarInsumosBinding
 
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
-            binding = ActivityListarClientesBinding.inflate(layoutInflater)
+            binding = ActivityListarInsumosBinding.inflate(layoutInflater)
             setContentView(binding.root)
             var intent = intent
             //binding.btnVolver.setOnClickListener(this)
 
-            val clientes: Clientes = Clientes(Globals.getdataBase(this)?.clienteDao()?.getAllclientes()!! as ArrayList<ClienteEntity>)
-            val adapter: ClienteAdapter = ClienteAdapter(this, clientes)
+            val insumos: Insumos = Insumos(
+                Globals.getdataBase(this)?.insumoDao()?.getAllinsumos()!! as ArrayList<InsumoEntity>
+            )
+            val adapter: InsumoAdapter = InsumoAdapter(this, insumos)
 
 
-            binding.lstClientes.adapter = adapter
-            Toast.makeText(this, Globals.listaClientes.clientes.size.toString(), Toast.LENGTH_LONG).show()
+            binding.lstInsumos.adapter = adapter
+            Toast.makeText(this, Globals.listaInsumos.insumos.size.toString(), Toast.LENGTH_LONG)
+                .show()
 
             // Añadir el listener para el SearchView
-            binding.sViewClientes.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            binding.sViewI.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     return false
                 }
@@ -59,5 +63,4 @@ class ListaClientes : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
-
-
+}

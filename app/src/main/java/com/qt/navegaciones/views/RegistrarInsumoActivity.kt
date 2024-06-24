@@ -1,5 +1,6 @@
 package com.qt.navegaciones.views
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -24,7 +25,9 @@ class RegistrarInsumoActivity : AppCompatActivity(), View.OnClickListener, Adapt
         super.onCreate(savedInstanceState)
         binding = ActivityRegistrarInsumoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        var intent = intent
         binding.btnRegistrar.setOnClickListener(this)
+        binding.btnListarI.setOnClickListener(this)
 
         // Load products and populate spinner
         lifecycleScope.launch {
@@ -43,7 +46,13 @@ class RegistrarInsumoActivity : AppCompatActivity(), View.OnClickListener, Adapt
             R.id.btnRegistrar -> {
                 registrarInsumo()
             }
-        }
+
+            R.id.btnListarI -> {
+                val intent = Intent(this, ListaInsumos.ListaInsumos::class.java)
+                startActivity(intent)
+            }
+
+            }
     }
 
     private fun registrarInsumo() {

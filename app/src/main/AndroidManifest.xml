@@ -22,11 +22,18 @@
         <activity android:name=".views.ListaUsuarios"
             android:exported="false"/>
 
+        <activity android:name=".views.ListaProductos"
+            android:exported="false"/>
+
+
         <activity android:name=".views.ListaClientes"
             android:exported="false"/>
         <activity
             android:name=".PantallaBienvenida"
             android:exported="false" />
+
+        <activity android:name=".views.ListaInsumos$ListaInsumos"
+            android:exported="false"/>
         <activity
             android:name=".PantallaRegistroRol"
             android:exported="false" />

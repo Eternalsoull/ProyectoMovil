@@ -8,33 +8,32 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.qt.navegaciones.MainActivity
 import com.qt.navegaciones.R
-import com.qt.navegaciones.adapters.ClienteAdapter
-import com.qt.navegaciones.databinding.ActivityListarClientesBinding
-import com.qt.navegaciones.databinding.ActivityPantalla3Binding
+import com.qt.navegaciones.adapters.ProductoAdapter
+import com.qt.navegaciones.databinding.ActivityListarProductosBinding
+import com.qt.navegaciones.models.Productos
 import com.qt.navegaciones.models.Globals
-import com.qt.navegaciones.models.Clientes
-import com.qt.navegaciones.models.database.entities.ClienteEntity
+import com.qt.navegaciones.models.database.entities.ProductoEntity
 
-class ListaClientes : AppCompatActivity(), View.OnClickListener {
-        lateinit var binding: ActivityListarClientesBinding
+class ListaProductos : AppCompatActivity(), View.OnClickListener {
+        lateinit var binding: ActivityListarProductosBinding
 
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
-            binding = ActivityListarClientesBinding.inflate(layoutInflater)
+            binding = ActivityListarProductosBinding.inflate(layoutInflater)
             setContentView(binding.root)
             var intent = intent
             //binding.btnVolver.setOnClickListener(this)
 
-            val clientes: Clientes = Clientes(Globals.getdataBase(this)?.clienteDao()?.getAllclientes()!! as ArrayList<ClienteEntity>)
-            val adapter: ClienteAdapter = ClienteAdapter(this, clientes)
+            val productos: Productos = Productos(Globals.getdataBase(this)?.productoDao()?.getAllproductos()!! as ArrayList<ProductoEntity>)
+            val adapter: ProductoAdapter = ProductoAdapter(this, productos)
 
 
-            binding.lstClientes.adapter = adapter
-            Toast.makeText(this, Globals.listaClientes.clientes.size.toString(), Toast.LENGTH_LONG).show()
+            binding.lstProductos.adapter = adapter
+            Toast.makeText(this, Globals.listaProductos.productos.size.toString(), Toast.LENGTH_LONG).show()
 
             // Añadir el listener para el SearchView
-            binding.sViewClientes.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            binding.sViewProducto.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     return false
                 }
@@ -59,5 +58,4 @@ class ListaClientes : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
-
 
