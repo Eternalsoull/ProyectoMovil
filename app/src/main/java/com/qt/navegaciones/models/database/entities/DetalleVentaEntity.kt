@@ -5,7 +5,7 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "Detalle_Venta",
+    tableName = "detalle_venta",
     foreignKeys = [
         ForeignKey(
             entity = VentaEntity::class,
@@ -21,11 +21,11 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-class DetalleVentaEntity {
+data class DetalleVentaEntity(
     @PrimaryKey(autoGenerate = true)
-    var id_Detalle_Venta: Int = 0
-    var Cantidad: Int = 0
-    var Precio: Double = 0.0
-    var id_Venta: Int = 0
-    var id_Producto: Int = 0
-}
+    var id_DetalleVenta: Int = 0,
+    var id_Venta: Int,
+    var id_Producto: Int,
+    var cantidad: Int,
+    var precio: Double // Save the price at the time of sale
+)

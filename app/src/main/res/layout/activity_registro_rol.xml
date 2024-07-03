@@ -21,20 +21,17 @@
 
     <Button
         android:id="@+id/btnRegistrarRol"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Registrar Rol"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etRol" />
+        android:text="Registrar"
+        app:layout_constraintTop_toBottomOf="@+id/etRol"
+        tools:layout_editor_absoluteX="16dp" />
 
     <TextView
         android:id="@+id/tvRol"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:hint="Rol"
         android:minHeight="48dp"
@@ -43,5 +40,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRegistrarRol" />
+
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="volver"
+        app:layout_constraintTop_toBottomOf="@+id/tvRol"
+        tools:layout_editor_absoluteX="83dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,22 +1,17 @@
 package com.qt.navegaciones.models.database.entities
 
 import androidx.room.Entity
-import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import java.util.Date
 
-@Entity(
-    tableName = "Venta",
-    foreignKeys = [ForeignKey(
-        entity = UsuarioEntity::class,
-        parentColumns = ["id_Usuario"],
-        childColumns = ["id_Usuario"],
-        onDelete = ForeignKey.CASCADE
-    )]
-)
-class VentaEntity {
-    @PrimaryKey(autoGenerate = true)
-    var id_Venta: Int = 0
-    var Fecha: Long = 0
-    var Monto_Total: Double = 0.0
-    var id_Usuario: Int = 0
+@Entity(tableName = "ventas")
+data class VentaEntity(
+    @PrimaryKey(autoGenerate = true) val id_Venta: Int = 0,
+    val id_Producto: Int,
+    val Nombre: String,
+    val Precio: Double,
+    val Cantidad: Int,
+    val PrecioTotal: Double,
+    val Fecha: Date, // Nuevo campo para la fecha de la venta
+) {
 }

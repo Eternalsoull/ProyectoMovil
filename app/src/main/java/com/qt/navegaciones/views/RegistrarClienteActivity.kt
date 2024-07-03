@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.qt.navegaciones.PantallaBienvenida
 import com.qt.navegaciones.PantallaRegistroRol
 import com.qt.navegaciones.R
 import com.qt.navegaciones.databinding.ActivityRegistrarClienteBinding
@@ -23,6 +24,7 @@ class RegistrarClienteActivity : AppCompatActivity(), View.OnClickListener {
         var intent = intent
         binding.btnRegistrar.setOnClickListener(this)
         binding.btnListar.setOnClickListener(this)
+        binding.btnVolverC.setOnClickListener(this)
 
 
     }
@@ -65,6 +67,10 @@ class RegistrarClienteActivity : AppCompatActivity(), View.OnClickListener {
                 val intent = Intent(this, ListaClientes::class.java)
                 startActivity(intent)
 
+            }
+            R.id.btnVolverC -> {
+                val intent = Intent(this, PantallaBienvenida::class.java)
+                startActivity(intent)
             }
         }
     }

@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Navegaciones"
         tools:targetApi="31">
+        <activity android:name=".RegistrarVentaActivity"
+            android:exported="false"/>
+        <activity android:name=".ListarVentasActivity"
+            android:exported="false"/>
+        <activity android:name=".views.RegistrarVehiculoActivity"
+            android:exported="false"/>
         <activity android:name=".views.RegistrarProductoActivity"
             android:exported="false"/>
         <activity android:name=".views.RegistrarInsumoActivity"

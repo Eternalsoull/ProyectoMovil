@@ -10,21 +10,21 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.qt.navegaciones.PantallaBienvenida
 import com.qt.navegaciones.R
-import com.qt.navegaciones.databinding.ActivityRegistrarInsumoBinding
+import com.qt.navegaciones.databinding.ActivityRegistrarVehiculoBinding
 import com.qt.navegaciones.models.Globals
-import com.qt.navegaciones.models.database.entities.InsumoEntity
 import com.qt.navegaciones.models.database.entities.ProductoEntity
+import com.qt.navegaciones.models.database.entities.VehiculoEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class RegistrarInsumoActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSelectedListener {
-    lateinit var binding: ActivityRegistrarInsumoBinding
+class RegistrarVehiculoActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSelectedListener {
+    lateinit var binding: ActivityRegistrarVehiculoBinding
     private var productos: List<ProductoEntity> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegistrarInsumoBinding.inflate(layoutInflater)
+        binding = ActivityRegistrarVehiculoBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnRegistrar.setOnClickListener(this)
         binding.btnVolver.setOnClickListener(this)
@@ -32,19 +32,19 @@ class RegistrarInsumoActivity : AppCompatActivity(), View.OnClickListener, Adapt
         // Load products and populate spinner
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
-                productos = Globals.getdataBase(this@RegistrarInsumoActivity)?.productoDao()?.getAllproductos() ?: emptyList()
+                productos = Globals.getdataBase(this@RegistrarVehiculoActivity)?.productoDao()?.getAllproductos() ?: emptyList()
             }
-            val adapter = ArrayAdapter(this@RegistrarInsumoActivity, android.R.layout.simple_spinner_item, productos.map { it.Nombre })
+            val adapter = ArrayAdapter(this@RegistrarVehiculoActivity, android.R.layout.simple_spinner_item, productos.map { it.Nombre })
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spinnerProducto.adapter = adapter
-            binding.spinnerProducto.onItemSelectedListener = this@RegistrarInsumoActivity
+            binding.spinnerProducto.onItemSelectedListener = this@RegistrarVehiculoActivity
         }
     }
 
     override fun onClick(p0: View?) {
         when (p0?.id) {
             R.id.btnRegistrar -> {
-                registrarInsumo()
+                registrarVehiculo()
             }
             R.id.btnVolver -> {
                 val intent = Intent(this, PantallaBienvenida::class.java)
@@ -53,25 +53,31 @@ class RegistrarInsumoActivity : AppCompatActivity(), View.OnClickListener, Adapt
         }
     }
 
-    private fun registrarInsumo() {
-        val descripcion = binding.etDescripcion.text.toString()
+    private fun registrarVehiculo() {
+        val marca = binding.etMarca.text.toString()
+        val modelo = binding.etModelo.text.toString()
+        val color = binding.etColor.text.toString()
+        val placa = binding.etPlaca.text.toString()
         val selectedProducto = binding.spinnerProducto.selectedItemPosition
 
-        if (descripcion.isEmpty() || selectedProducto < 0) {
+        if (marca.isEmpty() || modelo.isEmpty() || color.isEmpty() || placa.isEmpty() || selectedProducto < 0) {
             Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_LONG).show()
             return
         }
 
-        val insumoEntity = InsumoEntity().apply {
-            Descripcion = descripcion
+        val vehiculoEntity = VehiculoEntity().apply {
+            Marca = marca
+            Modelo = modelo
+            Color = color
+            Placa = placa
             id_Producto = productos[selectedProducto].id_Producto
         }
 
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
-                Globals.getdataBase(this@RegistrarInsumoActivity)?.insumoDao()?.insertInsumo(insumoEntity)
+                Globals.getdataBase(this@RegistrarVehiculoActivity)?.vehiculoDao()?.insertVehiculo(vehiculoEntity)
             }
-            Toast.makeText(this@RegistrarInsumoActivity, "Se ha agregado un insumo", Toast.LENGTH_LONG).show()
+            Toast.makeText(this@RegistrarVehiculoActivity, "Se ha agregado un vehículo", Toast.LENGTH_LONG).show()
             finish()
         }
     }

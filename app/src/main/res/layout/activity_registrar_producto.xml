@@ -30,6 +30,13 @@
         android:hint="Precio"
         android:inputType="numberDecimal"
         android:minHeight="48dp" />
+    <EditText
+        android:id="@+id/etCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cantidad"
+        android:inputType="number"
+        android:minHeight="48dp" />
 
     <Button
         android:id="@+id/btnRegistrar"
@@ -37,4 +44,10 @@
         android:layout_height="wrap_content"
         android:text="Registrar"
         android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="volver" />
 </LinearLayout>

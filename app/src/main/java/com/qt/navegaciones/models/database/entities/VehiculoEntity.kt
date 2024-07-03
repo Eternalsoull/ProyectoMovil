@@ -18,7 +18,7 @@ class VehiculoEntity {
     var id_Vehiculo: Int = 0
     var Marca: String = ""
     var Modelo: String = ""
-    var color: String = ""
+    var Color: String = ""
     var Placa: String = ""
     var id_Producto: Int = 0
 }

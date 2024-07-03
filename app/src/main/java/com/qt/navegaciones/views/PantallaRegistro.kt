@@ -22,6 +22,9 @@ class PantallaRegistro : AppCompatActivity(), View.OnClickListener {
         var intent = intent
         binding.btnRegistrar.setOnClickListener(this)
         binding.btnListarUsuarios.setOnClickListener(this)
+        binding.btnVolver.setOnClickListener(this)
+
+
     }
 
     override fun onClick(p0: View?) {
@@ -55,6 +58,19 @@ class PantallaRegistro : AppCompatActivity(), View.OnClickListener {
                 val intent = Intent(this, ListaUsuarios::class.java)
                 startActivity(intent)
             }
+            R.id.btnVolver -> {
+                //si la el shared preferences no tiene la cedula, se redirige a la pantalla de inicio
+                val sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+                val cedula = sharedPreferences.getString("cedula", "")
+                if (cedula == "") {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    //si la cedula esta en el shared preferences se redirige a la pantalla de bienvenida
+                    val intent = Intent(this, PantallaBienvenida::class.java)
+                    startActivity(intent)
+                }
+            }
         }
     }
 
@@ -70,6 +86,7 @@ class PantallaRegistro : AppCompatActivity(), View.OnClickListener {
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, rolesString)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spRol.adapter = adapter
+
     }
 
 

@@ -7,6 +7,7 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.qt.navegaciones.MainActivity
+import com.qt.navegaciones.PantallaBienvenida
 import com.qt.navegaciones.R
 import com.qt.navegaciones.adapters.ClienteAdapter
 import com.qt.navegaciones.databinding.ActivityListarClientesBinding
@@ -24,7 +25,6 @@ class ListaClientes : AppCompatActivity(), View.OnClickListener {
             binding = ActivityListarClientesBinding.inflate(layoutInflater)
             setContentView(binding.root)
             var intent = intent
-            binding.btnVolver.setOnClickListener(this)
 
             val clientes: Clientes = Clientes(Globals.getdataBase(this)?.clienteDao()?.getAllclientes()!! as ArrayList<ClienteEntity>)
             val adapter: ClienteAdapter = ClienteAdapter(this, clientes)
@@ -44,16 +44,16 @@ class ListaClientes : AppCompatActivity(), View.OnClickListener {
                     return true
                 }
             })
+
+            binding.btnVolver.setOnClickListener(this)
         }
 
         override fun onClick(v: View?) {
             when (v?.id) {
                 // Eliminar el usuario seleccionado
                 R.id.btnVolver -> {
-
-
                     // Redirigir a la pantalla de bienvenida
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, PantallaBienvenida::class.java)
                     startActivity(intent)
                 }
             }

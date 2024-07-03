@@ -53,6 +53,8 @@ class Globals {
         fun initDatabase(context: Context){
             dataBase =  Room.databaseBuilder(context, ProjectDatabase::class.java, "project_database").fallbackToDestructiveMigration().allowMainThreadQueries().build() //fall
         }
+
+
     }
 }
 

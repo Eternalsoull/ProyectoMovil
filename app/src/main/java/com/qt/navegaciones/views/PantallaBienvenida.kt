@@ -9,6 +9,7 @@ import com.qt.navegaciones.models.Globals
 import com.qt.navegaciones.views.RegistrarClienteActivity
 import com.qt.navegaciones.views.RegistrarInsumoActivity
 import com.qt.navegaciones.views.RegistrarProductoActivity
+import com.qt.navegaciones.views.RegistrarVehiculoActivity
 
 class PantallaBienvenida: AppCompatActivity(), View.OnClickListener {
     lateinit var binding: ActivityBienvenidaBinding
@@ -23,25 +24,9 @@ class PantallaBienvenida: AppCompatActivity(), View.OnClickListener {
         binding.btnClientes.setOnClickListener(this)
         binding.btnInsumos.setOnClickListener(this)
         binding.btnProductos.setOnClickListener(this)
-
-
-        // Recuperar la cédula del intent
-        val cedula = intent.getStringExtra("cedula")
-        if (cedula != null) {
-            val usuario = Globals.getdataBase(this)?.usuarioDao()?.getUsuarioByCedula(cedula)
-            binding.tvNombre.text = usuario?.nombre
-            //si el rol es administrador mostrar el boton de btnUsuarios
-            if (usuario?.id_Rol == 1){
-                binding.btnUsuarios.visibility = View.VISIBLE
-                binding.btnRoles.visibility = View.VISIBLE
-            }
-            else{
-                binding.btnUsuarios.visibility = View.GONE
-                binding.btnRoles.visibility = View.GONE
-            }
-        }
-
-
+        binding.btnVehiculos.setOnClickListener(this)
+        binding.btnVentas.setOnClickListener(this)
+        Nombre()
     }
 
     override fun onClick(p0: View?) {
@@ -80,6 +65,30 @@ class PantallaBienvenida: AppCompatActivity(), View.OnClickListener {
             R.id.btnProductos -> {
                 val intent = Intent(this, RegistrarProductoActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.btnVehiculos -> {
+                val intent = Intent(this, RegistrarVehiculoActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.btnVentas -> {
+                val intent = Intent(this, RegistrarVentaActivity::class.java)
+                startActivity(intent)
+            }
+        }
+    }
+     fun Nombre(){
+        val cedula = intent.getStringExtra("cedula")
+        if (cedula != null) {
+            val usuario = Globals.getdataBase(this)?.usuarioDao()?.getUsuarioByCedula(cedula)
+            binding.tvNombre.text = usuario?.nombre
+            //si el rol es administrador mostrar el boton de btnUsuarios
+            if (usuario?.id_Rol == 1){
+                binding.btnUsuarios.visibility = View.VISIBLE
+                binding.btnRoles.visibility = View.VISIBLE
+            }
+            else{
+                binding.btnUsuarios.visibility = View.GONE
+                binding.btnRoles.visibility = View.GONE
             }
         }
     }

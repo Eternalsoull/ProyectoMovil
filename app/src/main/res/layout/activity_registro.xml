@@ -65,39 +65,28 @@
 
     <Button
         android:id="@+id/btnRegistrar"
-        android:layout_width="@dimen/activity_width_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="60dp"
-        android:text="@string/registrar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spRol" />
+        android:layout_marginTop="92dp"
+        android:text="Registrar"
+        app:layout_constraintTop_toBottomOf="@+id/spRol"
+        tools:layout_editor_absoluteX="-16dp" />
 
     <Button
         android:id="@+id/btnListarUsuarios"
-        android:layout_width="@dimen/activity_width_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="84dp"
-        android:text="@string/listar"
-        app:layout_constraintEnd_toStartOf="@+id/btnRegistrar"
-        app:layout_constraintHorizontal_bias="0.43"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spRol" />
+        android:text="Listar"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistrar"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/btnVolver"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="167dp"
-        android:layout_marginTop="66dp"
-        android:layout_marginEnd="154dp"
-        android:layout_marginBottom="229dp"
         android:text="Volver"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegistrar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnListarUsuarios"
+        tools:layout_editor_absoluteX="0dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

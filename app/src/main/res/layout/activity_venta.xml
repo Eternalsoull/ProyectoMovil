@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <Spinner
+        android:id="@+id/spinner_clientes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Spinner
+        android:id="@+id/spinner_productos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/edittext_cantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cantidad"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/button_agregar_al_carrito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Agregar al Carrito" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_carrito"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/button_agregar_venta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Agregar Venta" />
+
+    <Button
+        android:id="@+id/button_listar_ventas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listar Ventas" />
+</LinearLayout>
